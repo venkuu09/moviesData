@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/movieController');
 
+//Requirements
 router.get('/movies', controller.listAllMovies);
 router.get('/movies/details/:imdbId', controller.getMovieDetails);
 router.get('/movies/year/:year', controller.listByYear);
