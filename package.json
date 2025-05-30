@@ -3,16 +3,34 @@
   "version": "1.0.0",
   "description": "This is a REST API built with Node.js and Express, using SQLite3 for data storage. It serves movie data and supports filtering by year or genre.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+   "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
   "dependencies": {
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "sqlite3": "^5.1.7"
-    
+    "sqlite3": "^5.1.7",
+    "winston": "^3.8.2"
+  },
+   "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "nodemon": "^3.0.3",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "prettier": "^3.2.5"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "roots": ["<rootDir>/tests"],
+    "transform": {}
   }
+
 }
