@@ -7,7 +7,7 @@ const db = new sqlite3.Database(path.resolve(__dirname, 'C:/Users/mailt/Download
     console.log('Connected to movies.db');
     db.run(`ATTACH DATABASE '${path.resolve(__dirname, 'C:/Users/mailt/Downloads/movie-api/movie-api/src/db/ratings.db')}' AS ratingsDb`, (err) => {
       if (err) console.error('Failed to attach ratings.db:', err.message);
-      else console.log('Attached ratings.db successfully');
+      else console.log('Connected and Attached ratings.db successfully');
     });
   }
 });
