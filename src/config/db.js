@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const openDb = file =>
-  new sqlite3.Database(path.join(__dirname, '..', 'db', file), sqlite3.OPEN_READONLY);
+  new sqlite3.Database(path.join(__dirname, '..', '..', 'db', file), sqlite3.OPEN_READONLY);
 
 export const moviesDb = openDb('movies.db');
 export const ratingsDb = openDb('ratings.db');
