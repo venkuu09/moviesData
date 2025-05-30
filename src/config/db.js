@@ -1,15 +1,11 @@
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+import sqlite3 from 'sqlite3';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const db = new sqlite3.Database(path.resolve(__dirname, 'C:/Users/mailt/Downloads/movie-api/movie-api/src/db/movies.db'), (err) => {
-  if (err) console.error('Failed to connect to movies.db:', err.message);
-  else {
-    console.log('Connected to movies.db');
-    db.run(`ATTACH DATABASE '${path.resolve(__dirname, 'C:/Users/mailt/Downloads/movie-api/movie-api/src/db/ratings.db')}' AS ratingsDb`, (err) => {
-      if (err) console.error('Failed to attach ratings.db:', err.message);
-      else console.log('Connected and Attached ratings.db successfully');
-    });
-  }
-});
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-module.exports = db;
+const openDb = file =>
+  new sqlite3.Database(path.join(__dirname, '..', 'db', file), sqlite3.OPEN_READONLY);
+
+export const moviesDb = openDb('movies.db');
+export const ratingsDb = openDb('ratings.db');
