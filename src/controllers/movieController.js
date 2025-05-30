@@ -1,5 +1,6 @@
 const service = require('../services/movieService');
 
+//Listing all movies
 exports.listAllMovies = async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   try {
@@ -10,6 +11,7 @@ exports.listAllMovies = async (req, res) => {
   }
 };
 
+// Movie details by imdbId
 exports.getMovieDetails = async (req, res) => {
   const { imdbId } = req.params;
   try {
@@ -21,6 +23,7 @@ exports.getMovieDetails = async (req, res) => {
   }
 };
 
+// Movies by Year
 exports.listByYear = async (req, res) => {
   const { year } = req.params;
   const page = parseInt(req.query.page) || 1;
@@ -32,6 +35,7 @@ exports.listByYear = async (req, res) => {
   }
 };
 
+//Movies by Genre
 exports.listByGenre = async (req, res) => {
   const { genre } = req.params;
   const page = parseInt(req.query.page) || 1;
