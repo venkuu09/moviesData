@@ -1,5 +1,6 @@
 const db = require('../config/db');
 
+// Get movies by limit 50 
 exports.getAllMovies = (page = 1, limit = 50) => {
   const offset = (page - 1) * limit;
   return new Promise((resolve, reject) => {
@@ -22,6 +23,7 @@ exports.getAllMovies = (page = 1, limit = 50) => {
   });
 };
 
+//Get movie Details
 exports.getMovieDetails = (imdbId) => {
   return new Promise((resolve, reject) => {
     const query = `
@@ -51,6 +53,7 @@ exports.getMovieDetails = (imdbId) => {
   });
 };
 
+// Get movies by Year
 exports.getMoviesByYear = (year, page = 1, limit = 50) => {
   const offset = (page - 1) * limit;
   return new Promise((resolve, reject) => {
@@ -73,6 +76,7 @@ exports.getMoviesByYear = (year, page = 1, limit = 50) => {
   });
 };
 
+//Get Movies by Genre
 exports.getMoviesByGenre = (genre, page = 1, limit = 50) => {
   const offset = (page - 1) * limit;
   return new Promise((resolve, reject) => {
