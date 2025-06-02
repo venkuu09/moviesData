@@ -9,9 +9,9 @@ import byGenre from './routes/byGenre.js';
 const app = express();
 
 app.use(express.json());
-app.use('/movies', movies);
-app.use('/movies/year', byYear);
-app.use('/movies/genre', byGenre);
+app.use('api/movies', movies);
+app.use('api/movies/year', byYear);
+app.use('api/movies/genre', byGenre);
 
 app.use((req, res) => res.status(404).json({ error: 'Route not found' }));
 
