@@ -2,17 +2,21 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
-import movieRoutes from './routes/movieRoutes.js';
+import movies from './routes/movies.js';
+import byYear from './routes/byYear.js';
+import byGenre from './routes/byGenre.js';
 
 const app = express();
 
 app.use(express.json());
-app.use('/api', movieRoutes);
+app.use('/movies', movies);
+app.use('/movies/year', byYear);
+app.use('/movies/genre', byGenre);
+
+app.use((req, res) => res.status(404).json({ error: 'Route not found' }));
 
 const PORT = process.env.PORT || 3000;
-// Server connected to 3000
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-app.get('/', (req, res) => {
-  res.send('Welcome to the MOVIE API');
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
