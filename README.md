@@ -1,5 +1,3 @@
-# moviesData
-
 # Movie API
 
 This is a REST API built with Node.js and Express, using SQLite3 for data storage. It serves movie data and supports filtering by year or genre.
