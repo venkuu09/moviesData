@@ -11,7 +11,7 @@ const openDb = file =>
 //export const ratingsDb = openDb('ratings.db');
 
 
-const dbPath = path.join(process.cwd(), 'db');
+const dbPath = path.join(__dirname, 'db');
 export const moviesDb = new sqlite3.Database(path.join(dbPath, 'movies.db'));
 export const ratingsDb = new sqlite3.Database(path.join(dbPath, 'ratings.db'));
 
