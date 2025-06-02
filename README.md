@@ -39,15 +39,15 @@ This is a REST API built with Node.js and Express, using SQLite3 for data storag
 | HTTP Method | URL                               | Description                      |
 | ----------- | --------------------------------- | -------------------------------- |
 | GET         | `/api/movies?page=1`              | List all movies (paginated)      |
-| GET         | `/api/movies/details/:imdb_id`    | Get movie details by IMDb ID     |
+| GET         | `/api/movies/:imdb_id`            | Get movie details by IMDb ID     |
 | GET         | `/api/movies/year/:year?page=1`   | List movies from a specific year |
 | GET         | `/api/movies/genre/:genre?page=1` | List movies by genre             |
 
 #### Example URLs:
 
 - Movies by page: http://localhost:3000/api/movies?page=1
-- Movies by ImdbId: http://localhost:3000/api/movies/details/tt1234567
-- Movies by year: http://localhost:3000/api/movies/year/2020?page=1
+- Movies by ImdbId: http://localhost:3000/api/movies/tt0109830
+- Movies by year: http://localhost:3000/api/movies/year/2016?page=1
 - Movies by genre: http://localhost:3000/api/movies/genre/Action?page=1
 
 ### Testing API
