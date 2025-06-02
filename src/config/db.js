@@ -7,5 +7,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const openDb = file =>
   new sqlite3.Database(path.join(__dirname, '..', '..', 'db', file), sqlite3.OPEN_READONLY);
 
-export const moviesDb = openDb('movies.db');
-export const ratingsDb = openDb('ratings.db');
+//export const moviesDb = openDb('movies.db');
+//export const ratingsDb = openDb('ratings.db');
+
+
+const dbPath = path.join(process.cwd(), 'db');
+export const moviesDb = new sqlite3.Database(path.join(dbPath, 'movies.db'));
+export const ratingsDb = new sqlite3.Database(path.join(dbPath, 'ratings.db'));
+
